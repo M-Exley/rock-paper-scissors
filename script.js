@@ -23,14 +23,14 @@ function playGame () {
     }
 
     function getHumanChoice() {
-    let res = window.prompt("Choose Rock, Paper, or Scissors");
-    const lower = res.toLowerCase();
-    // console.log(res);
-    if (res === "rock" || res === "paper" || res === "scissors") {
-        return res;
-    } else {
-        window.prompt("choice not found")
-    }
+    // // let res = window.prompt("Choose Rock, Paper, or Scissors");
+    // const lower = res.toLowerCase();
+    // // console.log(res);
+    // if (res === "rock" || res === "paper" || res === "scissors") {
+    //     return res;
+    // } else {
+    //     window.prompt("choice not found")
+    // }
     }
 
 
@@ -66,30 +66,45 @@ function playGame () {
             return 'tie';
         } 
         
-    }
-    while (humanScore < 5 && computerScore < 5) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        let result = playRound(computerSelection, humanSelection);
-
-        if (result === 'human') {
-            humanScore++;
-            console.log(`You win this round! Human: ${humanSelection}, Computer: ${computerSelection}`);
-        } else if (result === 'computer') {
-            computerScore++;
-            console.log(`Computer wins this round! Human: ${humanSelection}, Computer: ${computerSelection}`);
-        } else {
-            console.log(`Tie round! Human: ${humanSelection}, Computer: ${computerSelection}`);
         }
-        console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+        
+        // while (humanScore < 5 && computerScore < 5) {
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+            let result = playRound(computerSelection, humanSelection);
+            
+                
+
+        // if (result === 'human') {
+        //     humanScore++;
+        //     console.log(`You win this round! Human: ${humanSelection}, Computer: ${computerSelection}`);
+        // } else if (result === 'computer') {
+        //     computerScore++;
+        //     console.log(`Computer wins this round! Human: ${humanSelection}, Computer: ${computerSelection}`);
+        // } else {
+        //     console.log(`Tie round! Human: ${humanSelection}, Computer: ${computerSelection}`);
+        // }
+        // console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
     
-        }
+        // }
 
-        if (humanScore === 5) {
-            console.log("Congratulations! You won the game!");
-        } else {
-            console.log("Computer wins the game! Better luck next time.");
-        }
+        // if (humanScore === 5) {
+        //     console.log("Congratulations! You won the game!");
+        // } else {
+        //     console.log("Computer wins the game! Better luck next time.");
+        // }
+
+        const buttons = document.querySelectorAll("button");
+        console.log(buttons);    
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', function(e) {
+                
+            let humanChoice = e.target.textContent;
+            playRound(humanSelection, computerSelection)
+            })
+            console.log(humanSelection)
+        })
     }
     
 playGame();
