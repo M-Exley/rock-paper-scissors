@@ -93,12 +93,14 @@ const checkRound =  function(computerChoice, humanChoice) {
 
 playGame();
 
+const author = document.querySelector('.author');
 const keepTrackGame = function() {
     if ((humanScore === 3) || (computerScore === 3)) {
         finalResult.textContent = `Final Result: The winner is: ${humanScore === 3 ? "Player" : "Computer"}`;
         finalResult.style.color = "red";
         !count;
         timer();
+        author.style.display = 'block';
     
     }
   
@@ -116,6 +118,7 @@ const timer = function () {
             computerScoreUi.textContent = `Computer Score: `;
             finalResult.textContent = '';
             count = 0;
-        }, 4000);
+            author.style.display = 'none';
+        }, 1700);
     }
 }
